@@ -119,8 +119,12 @@ deleteProduct(req, res) {
         })
     }
 }
+
 }
 
+export {
+    Products
+}
 
 
 

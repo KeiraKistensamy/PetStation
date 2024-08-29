@@ -1,5 +1,6 @@
 import { connection as db } from '../config/index.js'
 import { compare, hash } from 'bcrypt'
+import { createToken } from '../middleware/AuthenticateUser.js'
 
 // ****************USERS***********************
 
@@ -186,4 +187,8 @@ deleteUser(req, res) {
     }
 }
 
+}
+
+export {
+    Users
 }
