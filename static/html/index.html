@@ -4,112 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/style.css">
-    <title>Document</title>
+    <title>API Endpoints</title>
 </head>
-<h1>Endpoints for PetStation</h1>
 <body>
-    <h1>USERS API</h1>
-    <table>
-        <tr>
-            <th>HTTP</th>
-            <th>PATH</th>
-            <th>DESCRIPTIONS</th>
-        </tr>
-        <tr>
-            <td>GET</td>
-            <td>/</td>
-            <td>Get all users</td>
-        </tr>
-        <tr>
-            <td>GET</td>
-            <td>/user/:id</td>
-            <td>Get A user</td>
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>/user/register</td>
-            <td>Register a user</td>
-        </tr>
-        <tr>
-            <td>PATCH</td>
-            <td>/user/update/:id</td>
-            <td>Update A user</td>
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>/login</td>
-            <td>Login A user</td>
-        </tr>
-        <tr>
-            <td>DELETE</td>
-            <td>/users/delete/:id</td>
-            <td>Delete/remove a user</td>
-        </tr>
-    </table>
+    <h1>Endpoints for PetStation</h1>
 
-    <!-- Product Endpoints -->
-    <h1>Products API</h1>
-    <table>
-        <tr>
-            <th>HTTP</th>
-            <th>PATH</th>
-            <th>DESCRIPTIONS</th>
-        </tr>
-        <tr>
-            <td>GET</td>
-            <td>/products</td>
-            <td>Get all products</td>
-        </tr>
-        <tr>
-            <td>GET</td>
-            <td>/product/:id</td>
-            <td>Get A product</td>
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>/addProduct</td>
-            <td>Register a product</td>
-        </tr>
-        <tr>
-            <td>PUT</td>
-            <td>product/update/:id</td>
-            <td>Update A product</td>
-        </tr>
-        <tr>
-            <td>DELETE</td>
-            <td>/products/:id</td>
-            <td>Delete/remove a product</td>
-        </tr>
-    </table>
+    <section>
+        <h2>USERS API</h2>
+        <table class="api-table">
+            <thead>
+                <tr>
+                    <th>HTTP</th>
+                    <th>PATH</th>
+                    <th>DESCRIPTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/</td>
+                    <td>Get all users</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/user/:id</td>
+                    <td>Get a user</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/user/register</td>
+                    <td>Register a user</td>
+                </tr>
+                <tr>
+                    <td>PATCH</td>
+                    <td>/user/update/:id</td>
+                    <td>Update a user</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/login</td>
+                    <td>Login a user</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/users/delete/:id</td>
+                    <td>Delete/remove a user</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-    <h1>CART API</h1>
-    <table>
-        <tr>
-            <th>HTTP</th>
-            <th>PATH</th>
-            <th>DESCRIPTIONS</th>
-        </tr>
-        <tr>
-            <td>GET</td>
-            <td>/user/:id/carts</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>/user/:id/cart</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>PATCH</td>
-            <td>/user/:id/cart/:id</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>DELETE</td>
-            <td>/user/:id/cart</td>
-            <td></td>
-        </tr>
-    </table>
+    <section>
+        <h2>Products API</h2>
+        <table class="api-table">
+            <thead>
+                <tr>
+                    <th>HTTP</th>
+                    <th>PATH</th>
+                    <th>DESCRIPTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/products</td>
+                    <td>Get all products</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/product/:id</td>
+                    <td>Get a product</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/addProduct</td>
+                    <td>Register a product</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/product/update/:id</td>
+                    <td>Update a product</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/products/:id</td>
+                    <td>Delete/remove a product</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
+    <section>
+        <h2>CART API</h2>
+        <table class="api-table">
+            <thead>
+                <tr>
+                    <th>HTTP</th>
+                    <th>PATH</th>
+                    <th>DESCRIPTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/user/:id/carts</td>
+                    <td>Get all carts for a user</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/user/:id/cart</td>
+                    <td>Add an item to the cart</td>
+                </tr>
+                <tr>
+                    <td>PATCH</td>
+                    <td>/user/:id/cart/:id</td>
+                    <td>Update an item in the cart</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/user/:id/cart</td>
+                    <td>Remove an item from the cart</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 </body>
 </html>
