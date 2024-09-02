@@ -1,31 +1,36 @@
-// Importing
-
-import express from 'express'
+import { userRouter, express } from './controller/UserController.js'
+import { productRouter } from './controller/ProductController.js'
+import cors from 'cors'
 import path from 'path'
-import {pool} from './config/index.js'
-
-// Creating an express app
-
+// Create an express app
 const app = express()
-const port = +process.env.PORT || 2000
-const router = express.Router()
-
-// The middleWare
-
-app.use(router, express.static('./static'),
-express.json(),
-express.urlencoded({
-    extended: true
-}))
-// The Endpoints
-
-router.get('^/$|/PetStation', (req, res) =>{
+const port = +process.env.PORT || 4000
+// Middleware
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "*");
+    res.header("Access-Control-Request-Methods", "*");
+    res.header("Access-Control-Allow-Headers", "*");
+    res.header("Access-Control-Expose-Headers", "Authorization");
+    next()
+})
+app.use('/users', userRouter)
+app.use('/products', productRouter)
+app.use(
+    express.static('./static'),
+    express.json(),
+    express.urlencoded({
+        extended: true
+    }),
+    cors({
+        origin: '*',
+        credentials:true
+    })
+)
+app.get('^/$|/nodeEOMP', (req, res) => {
     res.status(200).sendFile(path.resolve('./static/html/index.html'))
 })
-
-app.use('/users', userRouter)
-app.use('/products', userProducts)
-
-app.listen(port,()=>{
-    console.log('http://localhost:' +port);
-})
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+  });
