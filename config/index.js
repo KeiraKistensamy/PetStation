@@ -1,20 +1,20 @@
 import { createPool } from "mysql2";
-import 'dotenv/config.js' //to access all files in .env
+import 'dotenv/config' //to access all files in .env
 
-let pool = createPool ({
+let connection = createPool ({
     host: process.env.hostDb,
     user: process.env.userDb,
     password: process.env.password,
     database: process.env.dbName,
-    multipleStatement: true,
+    multipleStatements: true, // Fix: Renamed from 'multipleStatement' to 'multipleStatements'
     connectionLimit: 30
 })
 
 // if it doesnt work(error message below)
-connection.on('connection', (err)=>{
-    if(err) throw new Error('Could not connect to the database, please try again later.')
+connection.on('connection', (pool)=>{
+    if(!pool) throw new Error('Could not connect to the database, please try again later.')
 })
 
 export {
-    pool
+    connection
 }
