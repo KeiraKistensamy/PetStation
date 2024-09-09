@@ -4,9 +4,9 @@ class Carts{
         try{
             const strQry = `
             SELECT distinct c.userID, CONCAT(u.firstName, ' ', u.lastName) AS fullName,
-                group_concat(DISTINCT p.productName) 'Product',
-                sum(p.productPrice * c.quantity)  'Total Price',
-                sum(c.quantity) 'Quantity'
+                group_concat(DISTINCT p.productName) productName,
+                sum(p.productPrice) price,
+                sum(c.quantity) Quantity
             FROM Carts c
             JOIN Users u ON c.userID = u.userID
             JOIN Products p ON c.productID = p.productID
