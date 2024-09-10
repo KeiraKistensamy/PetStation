@@ -201,7 +201,7 @@ class Users {
               status: res.statusCode,
               token,
               result: result[0],
-              msg: "Successfully logged in!"
+              msg: "Successfully logged in"
             });
           } else {
             res.json({
