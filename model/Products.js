@@ -126,26 +126,23 @@ class Products {
     }
 
     deleteProduct(req, res) {
-        try {
+        try{
             const strQry = `
             DELETE FROM Products
-            WHERE productID = ?;
+            WHERE productID = ${req.params.id};
             `
-            db.query(strQry, [req.params.id], (err) => {
-                if (err) {
-                    console.error('Error details:', err); // Log the exact MySQL error
-                    throw new Error('Unable to delete a product');
-                }
-                res.json({
-                    status: res.statusCode,
-                    msg: 'A product was removed.'
-                });
-            });
-        } catch (e) {
+            db.query (strQry, (err) => {
+                if(err) throw new Error('To delete a product, please review your delete query.')
+                    res.json({
+                        status: res.statusCode,
+                        msg: 'A product was successfully removed!'
+                })
+            })
+        } catch(e) {
             res.json({
                 status: 404,
                 err: e.message
-            });
+            })
         }
     }
 }
