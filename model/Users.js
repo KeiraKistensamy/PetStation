@@ -33,8 +33,13 @@ class Users {
         WHERE userID = ${req.params.id};
         `;
       db.query(strQry, (err, result) => {
-        if (err) throw new Error("Issue when retrieving a user.");
-        res.json({
+        if (err) {
+          console.error("Database Error:", err);
+          return res.status(500).json({
+            status: 500,
+            msg: "Database error occurred.",
+          });
+        }        res.json({
           status: res.statusCode,
           result: result[0],
         });

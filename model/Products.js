@@ -9,13 +9,14 @@ class Products {
             `
             db.query(strQry, (err, results) => {
                 if (err) {
-                    console.error('Error details:', err); // Log the exact MySQL error
-                    throw new Error('Unable to fetch all products');
-                }
-                res.json({
+                    // console.error('Error details:', err); // Log the exact MySQL error
+                    // throw new Error('Unable to fetch all products');
+                    throw err
+                } else (
+                res.json({  
                     status: res.statusCode,
                     results
-                });
+                }));
             });
         } catch (e) {
             res.json({

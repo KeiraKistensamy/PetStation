@@ -57,12 +57,11 @@ class Carts{
         try{
             const strQry = `
             INSERT INTO Carts
-            (userID, productID, quantity)
-            VALUES (${req.params.id}, ${req.body.productID}, ${req.body.quantity});
+            SET ?;
             `
-            console.log(req.params.id, req.body.productID, req.body.quantity);
-            db.query(strQry, (err, results) => {
-                if (err) throw new Error(err)
+            console.log(req.body);
+            db.query(strQry, [req.body], (err) => {
+                if (err) throw new Error(err.message)
                 res.json({
                     status: res.statusCode,
                     msg : 'added to cart '
@@ -71,7 +70,7 @@ class Carts{
         }  catch (e){
             res.json({
                 status: 404,
-                msg: e.message
+                err: e.message
             })
         }
     }
