@@ -10,15 +10,62 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    component: () => import('../views/AboutView.vue')
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: () => import('../views/ProductsView.vue')
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('../views/AdminView.vue')
+  },
+  {
+    path: '/contactus',
+    name: 'contactus',
+    component: () => import('../views/ContactUsView.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/LoginView.vue')
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: () => import('../views/SignUp.vue')
+  },
+  {
+    path: '/singleview/:id',
+    name: 'singleview',
+    component: () => import('../views/SingleView.vue')
+  },
+  {
+    path: '/checkout',
+    name: 'checkout',
+    component: () => import('../views/CheckoutView.vue')
+  },
+  {
+    path: '/userprofile',
+    name: 'userprofile',
+    component: () => import('../views/UserProfileView.vue')
+  },
+  {
+    path: '/exchanges',
+    name: 'exchanges',
+    component: () => import('../views/ExchangesView.vue')
+  },
+  {
+    path: '/sizeguide',
+    name: 'sizeguide',
+    component: () => import('../views/SizeGuide.vue')
+  },
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 })
 
