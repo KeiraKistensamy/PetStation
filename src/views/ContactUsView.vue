@@ -5,18 +5,22 @@
             <div class="col-md-6">
                 <div class="contact-page">
                     <div class="contact-form">
-                        <form action="https://formspree.io/f/movaqpjb" method="POST">
+                        <form id="contactForm" action="https://formspree.io/f/movaqpjb" method="POST" @submit.prevent="validateForm">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="Firstname" placeholder="Enter your first name" autocomplete="off" required>
+                                <input type="text" v-model="form.firstname" class="form-control" name="Firstname" placeholder="Enter your first name" autocomplete="off" required>
+                                <small v-if="errors.firstname" class="text-danger">{{ errors.firstname }}</small>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="lastname" placeholder="Enter your last name" autocomplete="off" required>
+                                <input type="text" v-model="form.lastname" class="form-control" name="lastname" placeholder="Enter your last name" autocomplete="off" required>
+                                <small v-if="errors.lastname" class="text-danger">{{ errors.lastname }}</small>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="Email" placeholder="Enter your Email Address" autocomplete="off" required>
+                                <input type="email" v-model="form.email" class="form-control" name="Email" placeholder="Enter your Email Address" autocomplete="off" required>
+                                <small v-if="errors.email" class="text-danger">{{ errors.email }}</small>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="5" name="message" placeholder="Enter your message" autocomplete="off" required></textarea>
+                                <textarea v-model="form.message" class="form-control" rows="5" name="message" placeholder="Enter your message" autocomplete="off" required></textarea>
+                                <small v-if="errors.message" class="text-danger">{{ errors.message }}</small>
                             </div>
                             <div class="form-group d-flex justify-content-between">
                                 <button class="btn btn-secondary" type="reset">Clear</button>
@@ -26,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                        <div class="col-md-6 d-flex justify-content-center align-items-center">
                 <div class="contact-info">
                     <h4 class="text-center">Call Us:</h4>
                     <div class="d-flex justify-content-center">
@@ -50,8 +54,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-6 contact-map d-flex justify-content-center">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093745!2d18.4628609!3d-33.9804774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc42d1bd2aa6f7%3A0xfc3fb30472567911!2s135+Main+Rd%2C+Claremont%2C+Cape+Town%2C+7708!5e0!3m2!1sen!2sza!4v1697696624832!5m2!1sen!2sza" width="80%" height="400" frameborder="0" style="border: 0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -69,11 +71,71 @@
                 <p>Public Holidays: 09h00 - 18h00</p>
             </div>
         </div>
+    </div>        
+    </div>
     </div>
 </template>
 
+
 <script>
-export default {}
+export default {
+    data() {
+        return {
+            form: {
+                firstname: '',
+                lastname: '',
+                email: '',
+                message: '',
+            },
+            errors: {}
+        };
+    },
+    methods: {
+        validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        },
+        validateForm() {
+            this.errors = {};
+            let valid = true;
+
+            // Validate First Name
+            if (!this.form.firstname) {
+                this.errors.firstname = "First name is required.";
+                valid = false;
+            }
+
+            // Validate Last Name
+            if (!this.form.lastname) {
+                this.errors.lastname = "Last name is required.";
+                valid = false;
+            }
+
+            // Validate Email
+            if (!this.form.email) {
+                this.errors.email = "Email is required.";
+                valid = false;
+            } else if (!this.validateEmail(this.form.email)) {
+                this.errors.email = "Please enter a valid email address.";
+                valid = false;
+            }
+
+            // Validate Message
+            if (!this.form.message) {
+                this.errors.message = "Message is required.";
+                valid = false;
+            } else if (this.form.message.length < 10) {
+                this.errors.message = "Message must be at least 10 characters long.";
+                valid = false;
+            }
+
+            if (valid) {
+                // If the form is valid, submit it
+                document.getElementById('contactForm').submit();
+            }
+        }
+    }
+};
 </script>
 
 <style scoped>
@@ -147,6 +209,11 @@ export default {}
 
 .social a {
     margin: 0 10px;
+}
+
+.text-danger {
+    color: red;
+    font-size: 12px;
 }
 
 @media (max-width: 768px) {
