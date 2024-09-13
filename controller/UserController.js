@@ -25,26 +25,6 @@ userRouter.post('/login', (req, res) => {
     users.login(req, res)
 })
 
-userRouter.get('/carts', (req, res) => {
-    carts.fetchCarts(req, res)
-})
-userRouter.get('/:id/cart', (req, res) =>{
-    carts.fetchuserCart(req, res)
-})
-userRouter.post('/:id/cart', (req, res) =>{
-    carts.fetchaddUserCart(req, res)
-})
-userRouter.patch('/:id/cart/:productID', (req, res) =>{
-    carts.fetchupdateUserCart(req, res)
-})
-userRouter.delete('/:id/cart', (req, res) => {
-    carts.deleteCart(req, res)
-})
-userRouter.delete('/:id/cart/:productID',(req, res) =>{
-    carts.deleteItem(req,res)
-})
-
-
 export {
     express,
     userRouter

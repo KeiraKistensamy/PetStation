@@ -1,4 +1,5 @@
 import { userRouter, express } from './controller/UserController.js'
+import { cartRouter } from './controller/CartController.js'
 import { productRouter } from './controller/ProductController.js'
 import cors from 'cors'
 import path from 'path'
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 })
 app.use('/users', userRouter)
 app.use('/products', productRouter)
+app.use('/carts', cartRouter)
 app.use(
     express.static('./static'),
     express.json(),
@@ -24,7 +26,7 @@ app.use(
         extended: true
     }),
     cors({
-        origin: '*',
+        origin: 'https://keira-eomp.web.app',
         credentials:true
     })
 )

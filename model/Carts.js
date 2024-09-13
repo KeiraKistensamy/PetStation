@@ -54,6 +54,8 @@ class Carts{
         }
     }
     fetchaddUserCart(req, res)  {
+        console.log(req.body);
+        
         try{
             const strQry = `
             INSERT INTO Carts

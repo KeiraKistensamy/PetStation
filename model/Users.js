@@ -26,6 +26,8 @@ class Users {
     }
   }
   fetchUser(req, res) {
+    console.log(req.params.id);
+    
     try {
       const strQry = `
         SELECT *
