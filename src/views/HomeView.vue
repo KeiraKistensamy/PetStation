@@ -280,5 +280,45 @@ export default {
     height: auto;
   }
 }
+/* Additional media query for screens 300px or narrower */
+@media (max-width: 300px) {
+  .gallery {
+    grid-template-columns: 1fr; /* Display single column for gallery items */
+    grid-template-rows: auto;
+  }
+
+  .gallery-item {
+    height: auto; /* Allow gallery items to resize automatically */
+  }
+
+  .gallery-item img {
+    width: 100%;  /* Ensure the image takes up full width of the container */
+    height: auto; /* Keep the aspect ratio of the image */
+  }
+
+  .selling img {
+    width: 100px; /* Reduce size of images */
+    height: 100px;
+  }
+
+  .text {
+    padding-left: 5%;
+    padding-right: 5%; /* Reduce padding to fit content on smaller screens */
+  }
+
+  .heading {
+    font-size: 30px; /* Reduce heading size for smaller screens */
+  }
+
+  .background-container,
+  .fixed-image-section {
+    height: 40vh; /* Reduce background container height */
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 
 </style>
