@@ -79,6 +79,7 @@ onMounted(() => {
     margin: 0 auto;
     padding: 20px 20px;
     color: #000;
+    margin-top: 30px;
   }
   
   .checkout-banner h1 {
@@ -87,10 +88,6 @@ onMounted(() => {
     font-family: "Irish Grover", system-ui;
     font-weight: 400;
     font-style: normal;
-  }
-  
-  .checkout-banner p {
-    font-size: 18px;
   }
   
   .order-summary, .payment-details {

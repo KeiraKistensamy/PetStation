@@ -6,8 +6,8 @@ import { applyToken } from '@/service/AuthenticatedUser.js'
 import { useCookies } from 'vue3-cookies'
 const {cookies} = useCookies()
 import router from '@/router'
-// const apiURL = 'https://petstation-0nz3.onrender.com'
-const apiURL = 'http://localhost:3006'
+const apiURL = 'https://petstation-0nz3.onrender.com'
+// const apiURL = 'http://localhost:3006'
 
 applyToken(cookies.get('legitUser')?.token)
 export default createStore({
@@ -99,21 +99,22 @@ async fetchProduct(context, id) {
 },
 
 // delete a product
-async deleteProduct(context, id) {
+async deleteProduct({ dispatch }, id) {
   try {
-    const { msg } = await (await axios.delete(`${apiURL}/product/${id}`)).data
+    const response = await axios.delete(`${apiURL}/product/${id}`);
+    const { msg } = response.data;
     if (msg) {
-      context.dispatch('fetchProducts')
+      dispatch('fetchProducts'); // Ensure `fetchProducts` action is correctly implemented
       toast.success(`${msg}`, {
         autoClose: 2000,
         position: toast.POSITION.BOTTOM_CENTER
-      })
+      });
     }
   } catch (e) {
     toast.error(`${e.message}`, {
       autoClose: 2000,
       position: toast.POSITION.BOTTOM_CENTER
-    })
+    });
   }
 },
 

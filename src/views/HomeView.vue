@@ -159,6 +159,20 @@ export default {
   text-align: center;
 }
 
+@keyframes headingAnimation {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.heading {
+  font-family: "Irish Grover", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  animation: headingAnimation 1s ease-out;
+}
+
+
 @media (max-width: 768px) {
   .selling {
     margin-bottom: 20px;

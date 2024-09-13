@@ -333,6 +333,42 @@ onMounted(() => {
   background-color: #0056b3;
 }
 
+/* Media query for screens up to 700px */
+@media (max-width: 700px) {
+  .product-card {
+    width: calc(100% - 20px); /* Make the card slightly smaller than full width to account for margins */
+    margin: 10px; /* Adjust margin for spacing between cards */
+    padding: 15px; /* Increase padding for larger card content */
+  }
+
+  .card-image {
+    max-height: 200px; /* Increase image height to make the card look bigger */
+  }
+
+  .card-title {
+    font-size: 1.5rem; /* Increase title size for better visibility */
+  }
+
+  .card-category,
+  .card-description,
+  .card-price {
+    font-size: 1.125rem; /* Increase font size for better readability */
+  }
+
+  .button-group {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space out buttons */
+    align-items: center; /* Center align buttons */
+  }
+
+  .card-button {
+    width: 100%; /* Make buttons take full width */
+    padding: 10px; /* Increase padding for larger buttons */
+    font-size: 1rem; /* Increase font size for better readability */
+  }
+}
+
+
 /* Media query for responsiveness */
 @media (max-width: 576px) {
   .search-bar {

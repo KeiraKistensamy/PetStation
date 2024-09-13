@@ -26,10 +26,6 @@
         <span>{{ user.emailAdd }}</span>
       </div>
 
-      <div class="user-detail">
-        <span class="label">Role:</span>
-        <span>{{ user.userRole }}</span>
-      </div>
     </div>
   </div>
 </template>
@@ -109,5 +105,15 @@ span {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
   transition: all 0.2s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

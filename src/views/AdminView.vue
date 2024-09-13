@@ -587,7 +587,7 @@ export default {
   font-family: "Irish Grover", system-ui;
   font-weight: 400;
   font-style: normal;
-  font-size: 50px;
+  font-size: 36px;
 }
 
 .dropdown-container {

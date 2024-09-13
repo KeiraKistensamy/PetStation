@@ -67,19 +67,8 @@
   background-position: center;
   background-size: cover;
   height: 50vh;
+  font-size: 36px;
 }
-
-/* .cute {
-  background-image: url("https://keirakistensamy.github.io/capstoneImg/images/pretty.jpg");
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
-  position: relative;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  height: 50vh;  
-} */
 
 .header::before {
   content: "";

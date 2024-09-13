@@ -182,6 +182,7 @@ export default {
     font-family: "Irish Grover", system-ui;
     font-weight: 400;
     font-style: normal;
+    font-size: 36px;
 }
 
 .operation-container {
